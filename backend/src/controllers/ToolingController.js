@@ -8,7 +8,7 @@ module.exports = {
         const {ToolName, ToolDescription, BeaconID, SubCategoryID} = request.body;
         
         
-        const [id] = await connection('Tooling').insert({
+        const id     = await connection('Tooling').insert({
             
             ToolName, 
             ToolDescription, 

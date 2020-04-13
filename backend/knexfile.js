@@ -14,19 +14,22 @@ module.exports = {
   },
 
   staging: {
-    client: 'postgresql',
+    client: 'mssql',
     connection: {
-      database: 'my_db',
-      user:     'username',
-      password: 'password'
+      host: 'BRBELM0DSQL80',
+      database: 'BeaconServer',
+      user:     'BEACON_USER',
+      password: 'BEACON_USER'
     },
     pool: {
       min: 2,
       max: 10
     },
     migrations: {
-      tableName: 'knex_migrations'
-    }
+      directory:'./src/database/migrations'
+      // tableName: 'knex_migrations'
+    },
+    useNullAsDefault: true,
   },
 
   production: {

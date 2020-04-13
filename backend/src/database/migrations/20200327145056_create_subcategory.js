@@ -3,7 +3,7 @@ exports.up = function(knex) {
   
       table.increments();
       table.string('SubCategoryName').notNullable();
-      table.decimal('CategoryID').notNullable();
+      table.integer('CategoryID').notNullable().unsigned();
 
       table.foreign('CategoryID').references('id').inTable('Category');
      

@@ -1,17 +1,29 @@
 const express= require('express');
 
 const BeaconController = require('./controllers/BeaconController')
+const GatewayController = require('./controllers/GatewayController')
 const CategoryController = require('./controllers/CategoryController')
 const SubCategoryController = require('./controllers/SubCategoryController')
+const AreaController = require('./controllers/AreaController')
+const SubAreaController = require('./controllers/SubAreaController')
 const ToolingController = require('./controllers/ToolingController')
+const RSSIController = require('./controllers/RSSIController')
 const routes = express.Router();
 
+routes.post('/rssi',RSSIController.save);
+routes.get('/rssi', RSSIController.index);
 
 routes.get('/beacons', BeaconController.index);
 routes.post('/beacons', BeaconController.create);
 routes.delete('/beacons/clear', BeaconController.clear);
 routes.delete('/beacons/delete/:id', BeaconController.delete);
 routes.put('/beacons/:id', BeaconController.update);
+
+routes.get('/gateway', GatewayController.index);
+routes.post('/gateway', GatewayController.create);
+routes.delete('/gateway/clear', GatewayController.clear);
+routes.delete('/gateway/delete/:id', GatewayController.delete);
+routes.put('/gateway/:id', GatewayController.update);
 
 routes.post('/category', CategoryController.create);
 routes.get('/category', CategoryController.index);
@@ -24,6 +36,18 @@ routes.get('/subcategory', SubCategoryController.index);
 routes.put('/subcategory/:id', SubCategoryController.update);
 routes.delete('/subcategory/delete/:id', SubCategoryController.delete);
 routes.delete('/subcategory/clear', SubCategoryController.clear);
+
+routes.post('/Area', AreaController.create);
+routes.get('/Area', AreaController.index);
+routes.put('/Area/:id', AreaController.update);
+routes.delete('/Area/delete/:id', AreaController.delete);
+routes.delete('/Area/clear', AreaController.clear);
+
+routes.post('/subArea', SubAreaController.create);
+routes.get('/subArea', SubAreaController.index);
+routes.put('/subArea/:id', SubAreaController.update);
+routes.delete('/subArea/delete/:id', SubAreaController.delete);
+routes.delete('/subArea/clear', SubAreaController.clear);
 
 routes.post('/tooling', ToolingController.create);
 routes.get('/tooling', ToolingController.index);

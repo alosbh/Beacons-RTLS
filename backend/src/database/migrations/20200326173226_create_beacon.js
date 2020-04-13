@@ -2,11 +2,11 @@ exports.up = function(knex) {
     return knex.schema.createTable('Beacon', function (table){
   
       table.increments();
-      table.string('BeaconName').notNullable();
-      table.decimal('Battery').notNullable();
-      table.decimal('Minor').notNullable();
-      table.decimal('Major').notNullable();
-      table.decimal('LastUpdated',2).notNullable();
+      table.string('BeaconName').notNullable().unique();
+      table.decimal('Battery');
+      table.decimal('Minor');
+      table.decimal('Major');
+      table.decimal('LastUpdated',2);
     })
   };
   

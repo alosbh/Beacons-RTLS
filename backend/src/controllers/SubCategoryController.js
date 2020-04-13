@@ -8,7 +8,7 @@ module.exports = {
         const {SubCategoryName, CategoryID} = request.body;
         
         
-        const [id] = await connection('SubCategory').insert({
+        const id = await connection('SubCategory').insert({
             
             SubCategoryName,
             CategoryID

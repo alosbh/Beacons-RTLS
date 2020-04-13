@@ -43,7 +43,9 @@ module.exports = {
         const {BeaconName,Battery,Minor,Major,LastUpdated} = request.body;
         
         
-        const [id] = await connection('Beacon').insert({
+        try{
+
+        const id = await connection('Beacon').returning('*').insert({
             
             BeaconName,
             Battery,
@@ -52,7 +54,14 @@ module.exports = {
             LastUpdated,
             
             
-        })
+        });
+
+        return response.json({id})
+
+        }
+        catch(error){
+            return response.status(400).send(error)
+        }
         
 
         return response.json(id);

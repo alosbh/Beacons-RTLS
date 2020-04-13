@@ -7,11 +7,5 @@ const app = express();
 app.use(express.json());
 app.use(routes);
 
-app.post('/teste', (request,response)=>{
-
-    console.log("um visitante");
-
-    return response.send("hello, youre welcome");
-})
 
 app.listen(3015);

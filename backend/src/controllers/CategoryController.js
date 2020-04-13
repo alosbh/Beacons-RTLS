@@ -8,7 +8,7 @@ module.exports = {
         const {CategoryName} = request.body;
         // const BeaconID = crypto.randomBytes(4).toString('HEX');
         
-        const [id] = await connection('Category').insert({
+        const id = await connection('Category').insert({
             
             CategoryName,
 

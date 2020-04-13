@@ -2,10 +2,10 @@ exports.up = function(knex) {
     return knex.schema.createTable('Tooling', function (table){
   
       table.increments();
-      table.decimal('BeaconID').notNullable();
+      table.integer('BeaconID').notNullable().unsigned();
       table.string('ToolName').notNullable();
       table.string('ToolDescription').notNullable();
-      table.decimal('SubCategoryID').notNullable();
+      table.integer('SubCategoryID').notNullable().unsigned();
 
       table.foreign('BeaconID').references('id').inTable('Beacon');
       table.foreign('SubCategoryID').references('id').inTable('SubCategory');
