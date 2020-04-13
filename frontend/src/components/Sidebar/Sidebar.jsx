@@ -23,16 +23,34 @@ import {FormInputs} from 'components/FormInputs/FormInputs.jsx'
 import logo from "assets/img/logo.png";
 import './custom.css'
 
+
+
 import { makeStyles } from '@material-ui/core/styles';
 import TreeView from '@material-ui/lab/TreeView';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import TreeItem from '@material-ui/lab/TreeItem';
 
+
+const beacons=[
+  {
+    "id":1,
+    "name":"e024ff"
+  },
+  {
+    "id":2,
+    "name":"e0189f"
+  },
+  {
+    "id":3,
+    "name":"e012ee"
+  }
+]
 class Sidebar extends Component {
 
 
   
+
   constructor(props) {
     super(props);
     this.state = {
@@ -60,8 +78,8 @@ class Sidebar extends Component {
     //     maxWidth: 400,
     //   },
     // });
-    // const classes = useStyles();
 
+    
     const sidebarBackground = {
       backgroundImage: "url(" + this.props.image + ")"
     };
@@ -117,18 +135,30 @@ class Sidebar extends Component {
 
           </div>
 
+            
           <TreeView
           className="root"
           defaultCollapseIcon={<ExpandMoreIcon />}
           defaultExpandIcon={<ChevronRightIcon />}
         >
-          <TreeItem nodeId="1" label="Calibration">
-            <TreeItem nodeId="2" label="Calendar" />
-            <TreeItem nodeId="3" label="Chrome" />
-            <TreeItem nodeId="4" label="Webstorm" />
+          <TreeItem className="tree-node" nodeId="1" label="Calibration">
+            
+            
+          {beacons.map(beacon => (
+
+            
+            <TreeItem className="tree-node" id={beacon.id} label={beacon.name}></TreeItem>
+            
+
+
+
+            
+            ))}
           </TreeItem>
           
           </TreeView>
+
+          
           
 
           

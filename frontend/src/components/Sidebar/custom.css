@@ -23,7 +23,12 @@
     
 }
 .root{
-    height: 240;
-    max-width: 400;
+    
+    
     flex-grow: 1
+}
+
+.tree-node{
+    font-size: 32px;
+    padding: 10;
 }
