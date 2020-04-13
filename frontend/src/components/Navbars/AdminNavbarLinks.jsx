@@ -32,27 +32,39 @@ class AdminNavbarLinks extends Component {
     return (
       <div>
         <Nav>
-          <NavItem eventKey={1} href="#">
+          <NavItem className="custom-icon-box" eventKey={1} href="#">
             <i className="pe-7s-map-marker custom-icon" />
-            <p className="hidden-lg hidden-md">Position</p>
+            <p className="custom-icon-text">Position</p>
+          </NavItem>
+
+          <NavItem className="custom-icon-box" eventKey={1} href="#">
+            <i className="pe-7s-server custom-icon" />
+            <p className="custom-icon-text">Database</p>
+          </NavItem>
+
+          <NavItem className="custom-icon-box" eventKey={1} href="#">
+            <i className="pe-7s-note2 custom-icon" />
+            <p className="custom-icon-text">Reports</p>
+          </NavItem>
+
+          <NavItem className="custom-icon-box" eventKey={1} href="#">
+            <i className="pe-7s-user custom-icon" />
+            <p className="custom-icon-text">Admin</p>
           </NavItem>
           
           
-          <NavItem eventKey={1} href="#">
-            <i className="pe-7s-note2 custom-icon"  />
-            <p className="hidden-lg hidden-md">Reports</p>
-          </NavItem>
+          
           
           
         </Nav>
         
         <Nav pullRight>
           <NavItem eventKey={1} href="#">
-            Conta
+            Account
           </NavItem>
           <NavDropdown
             eventKey={2}
-            title="Opções"
+            title="Options"
             id="basic-nav-dropdown-right"
           >
             <MenuItem eventKey={2.1}>Action</MenuItem>
@@ -64,7 +76,7 @@ class AdminNavbarLinks extends Component {
             <MenuItem eventKey={2.5}>Separated link</MenuItem>
           </NavDropdown>
           <NavItem eventKey={3} href="#">
-            Sair
+            Logout
           </NavItem>
         </Nav>
       </div>

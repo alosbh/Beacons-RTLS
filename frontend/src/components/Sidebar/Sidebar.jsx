@@ -19,10 +19,20 @@ import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
 
 import AdminNavbarLinks from "../Navbars/AdminNavbarLinks.jsx";
-
+import {FormInputs} from 'components/FormInputs/FormInputs.jsx'
 import logo from "assets/img/logo.png";
+import './custom.css'
+
+import { makeStyles } from '@material-ui/core/styles';
+import TreeView from '@material-ui/lab/TreeView';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import ChevronRightIcon from '@material-ui/icons/ChevronRight';
+import TreeItem from '@material-ui/lab/TreeItem';
 
 class Sidebar extends Component {
+
+
+  
   constructor(props) {
     super(props);
     this.state = {
@@ -39,7 +49,19 @@ class Sidebar extends Component {
     this.updateDimensions();
     window.addEventListener("resize", this.updateDimensions.bind(this));
   }
+
+  
   render() {
+
+    // const useStyles = makeStyles({
+    //   root: {
+    //     height: 240,
+    //     flexGrow: 1,
+    //     maxWidth: 400,
+    //   },
+    // });
+    // const classes = useStyles();
+
     const sidebarBackground = {
       backgroundImage: "url(" + this.props.image + ")"
     };
@@ -81,34 +103,36 @@ class Sidebar extends Component {
             Assets Tracking
           </a>
         </div>
-        {/* <div className="sidebar-wrapper">
-          <ul className="nav">
-            {this.state.width <= 991 ? <AdminNavbarLinks /> : null}
-            {this.props.routes.map((prop, key) => {
-              if (!prop.redirect)
-                return (
-                  <li
-                    className={
-                      prop.upgrade
-                        ? "active active-pro"
-                        : this.activeRoute(prop.layout + prop.path)
-                    }
-                    key={key}
-                  >
-                    <NavLink
-                      to={prop.layout + prop.path}
-                      className="nav-link"
-                      activeClassName="active"
-                    >
-                      <i className={prop.icon} />
-                      <p>{prop.name}</p>
-                    </NavLink>
-                  </li>
-                );
-              return null;
-            })}
-          </ul>
-        </div> */}
+        <div  className="sidebar-wrapper">
+
+          <div className='row-search'>
+
+            <form className='box-search'> 
+            <input className='form-search'
+              
+              placeholder="Search"/>
+            </form>
+            
+
+
+          </div>
+
+          <TreeView
+          className="root"
+          defaultCollapseIcon={<ExpandMoreIcon />}
+          defaultExpandIcon={<ChevronRightIcon />}
+        >
+          <TreeItem nodeId="1" label="Calibration">
+            <TreeItem nodeId="2" label="Calendar" />
+            <TreeItem nodeId="3" label="Chrome" />
+            <TreeItem nodeId="4" label="Webstorm" />
+          </TreeItem>
+          
+          </TreeView>
+          
+
+          
+        </div>
       </div>
     );
   }

@@ -1,8 +1,28 @@
 .custom-icon{
-    color:"#ff0000";
-    font-size:24px
+    color:'#ff0000';
+    font-size: 24px;
+    
+
+}
+
+.custom-icon-text{
+    font-size: 12px;
+    margin: 0
 }
 
 .custom-icon-box{
-    border:1px solid #000;
+    border:1px solid #bbb;
+    background-color: #faf8f8;
+    border-radius: 8px;
+    
+    margin: 5px 10px 5px 5px;
+    width: 90px;
+   
+    text-align: center;
+    
+    
+}
+
+.button{
+    margin:177px
 }

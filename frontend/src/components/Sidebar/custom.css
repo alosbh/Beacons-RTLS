@@ -1,0 +1,29 @@
+.form-search{
+    height: 35px;
+    padding: 4px;
+    border-radius: 5px;
+    width: 100%
+}
+
+.box-search{
+    
+   width: 70%;
+   display: block;
+   margin-left: auto;
+   margin-right: auto;
+    
+}
+
+.row-search{
+    margin-top: 5px;
+    padding: 10px;
+    display: flex;
+    align-items: center
+  
+    
+}
+.root{
+    height: 240;
+    max-width: 400;
+    flex-grow: 1
+}
