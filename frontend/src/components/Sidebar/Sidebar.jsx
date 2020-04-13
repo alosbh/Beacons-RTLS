@@ -81,7 +81,7 @@ class Sidebar extends Component {
             Assets Tracking
           </a>
         </div>
-        <div className="sidebar-wrapper">
+        {/* <div className="sidebar-wrapper">
           <ul className="nav">
             {this.state.width <= 991 ? <AdminNavbarLinks /> : null}
             {this.props.routes.map((prop, key) => {
@@ -108,7 +108,7 @@ class Sidebar extends Component {
               return null;
             })}
           </ul>
-        </div>
+        </div> */}
       </div>
     );
   }

@@ -34,13 +34,13 @@ class AdminNavbarLinks extends Component {
         <Nav>
           <NavItem eventKey={1} href="#">
             <i className="pe-7s-map-marker custom-icon" />
-            <p className="hidden-lg hidden-md">Dashboard</p>
+            <p className="hidden-lg hidden-md">Position</p>
           </NavItem>
           
           
           <NavItem eventKey={1} href="#">
-            <i className="pe-7s-note2" />
-            <p className="hidden-lg hidden-md">Dashboard</p>
+            <i className="pe-7s-note2 custom-icon"  />
+            <p className="hidden-lg hidden-md">Reports</p>
           </NavItem>
           
           
@@ -48,11 +48,11 @@ class AdminNavbarLinks extends Component {
         
         <Nav pullRight>
           <NavItem eventKey={1} href="#">
-            Account
+            Conta
           </NavItem>
           <NavDropdown
             eventKey={2}
-            title="Dropdown"
+            title="Opções"
             id="basic-nav-dropdown-right"
           >
             <MenuItem eventKey={2.1}>Action</MenuItem>
@@ -64,7 +64,7 @@ class AdminNavbarLinks extends Component {
             <MenuItem eventKey={2.5}>Separated link</MenuItem>
           </NavDropdown>
           <NavItem eventKey={3} href="#">
-            Log out
+            Sair
           </NavItem>
         </Nav>
       </div>

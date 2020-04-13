@@ -178,8 +178,8 @@ class Admin extends Component {
           />
 
           
-          <Switch>{this.getRoutes(routes)}</Switch>
-          <Footer />
+          {/* <Switch>{this.getRoutes(routes)}</Switch> */}
+          {/* <Footer /> */}
           
         </div>
       </div>
