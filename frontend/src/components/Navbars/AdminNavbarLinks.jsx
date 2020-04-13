@@ -17,6 +17,7 @@
 */
 import React, { Component } from "react";
 import { NavItem, Nav, NavDropdown, MenuItem } from "react-bootstrap";
+import './custom.css'
 
 class AdminNavbarLinks extends Component {
   render() {
@@ -32,8 +33,7 @@ class AdminNavbarLinks extends Component {
       <div>
         <Nav>
           <NavItem eventKey={1} href="#">
-            <i style={{fontSize:30,color:'#000'}}
-            size={60} className="pe-7s-map-marker" />
+            <i className="pe-7s-map-marker custom-icon" />
             <p className="hidden-lg hidden-md">Dashboard</p>
           </NavItem>
           
