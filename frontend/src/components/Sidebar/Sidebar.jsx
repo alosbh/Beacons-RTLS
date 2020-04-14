@@ -25,25 +25,73 @@ import './custom.css'
 
 
 
-import { makeStyles } from '@material-ui/core/styles';
+
 import TreeView from '@material-ui/lab/TreeView';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import TreeItem from '@material-ui/lab/TreeItem';
+import PropTypes from 'prop-types';
+import { withStyles } from '@material-ui/styles';
 
+const styles = theme => ({
+  content: {
+    
+    
+    borderRadius: 3,
+    width:'90%',
+    
+    height: 35,
+    padding: 4,
+    marginLeft: 'auto',
+    marginRight:'auto',
+    marginTop:8,
+    marginBottom:8,
+    '&:hover': {
+      backgroundColor:"#5f5f5f",
+    },
+  },
+
+  label:{
+    fontSize:16,
+    fontFamily:'Arial, sans-serif,Helvetica, sans-serif, Gill Sans, sans-serif, Lucida, sans-serif, Helvetica Narrow, sans-serif,  sans-serif'
+  }
+});
 
 const beacons=[
   {
-    "id":1,
-    "name":"e024ff"
+   "id":1,"Category":"Calibration","Subcategories":
+   [
+     {"id":1,"Subcategory":"Paquimetro","Tools":
+      [
+        {"id":1,"Name":"Paquimetro1"},
+        {"id":2,"Name":"Paquimetro2"}
+      ]
+    },
+    {"id":2,"Subcategory":"Micrometro","Tools":
+      [
+        {"id":3,"Name":"Micrometro1"},
+        {"id":4,"Name":"Micrometro2"}
+      ]
+    }
+   ]
   },
-  {
-    "id":2,
-    "name":"e0189f"
-  },
-  {
-    "id":3,
-    "name":"e012ee"
+
+  { "id":2,"Category":"Tooling","Subcategories":
+  [
+    {"id":3,"Subcategory":"Gigas","Tools":
+     [
+       {"id":5,"Name":"Giga1"},
+       {"id":6,"Name":"Giga2"}
+     ]
+   },
+   {"id":4,"Subcategory":"MCUs","Tools":
+     [
+       {"id":7,"Name":"MCU1"},
+       {"id":8,"Name":"Mcu2"}
+     ]
+   }
+  ]
+
   }
 ]
 class Sidebar extends Component {
@@ -79,7 +127,7 @@ class Sidebar extends Component {
     //   },
     // });
 
-    
+    const { classes } = this.props;
     const sidebarBackground = {
       backgroundImage: "url(" + this.props.image + ")"
     };
@@ -137,24 +185,60 @@ class Sidebar extends Component {
 
             
           <TreeView
-          className="root"
+          
           defaultCollapseIcon={<ExpandMoreIcon />}
           defaultExpandIcon={<ChevronRightIcon />}
         >
-          <TreeItem className="tree-node" nodeId="1" label="Calibration">
+          
             
             
-          {beacons.map(beacon => (
+          {beacons.map(({id,Category,Subcategories},i) => (
 
             
-            <TreeItem className="tree-node" id={beacon.id} label={beacon.name}></TreeItem>
+            <TreeItem 
+            
+            classes={{
+              content: classes.content,
+              label:classes.label
+            }} 
+            nodeId={"1."+id} label={Category}>
+              
+              {Subcategories.map(({id,Subcategory,Tools},j)=>(
+                <TreeItem 
+                classes={{
+                  content: classes.content,
+                  label:classes.label
+                }} 
+                className="tree-node" nodeId={"2."+id} label={Subcategory}>
+                  
+                  {Tools.map(({id,Name},j)=>(
+
+                    <TreeItem 
+                    classes={{
+                      content: classes.content,
+                      label:classes.label,
+                      
+                      
+                    }} 
+                    className="tree-node" nodeId={"3."+id} label={Name}/>
+
+                  ))}
+                  
+                
+                </TreeItem>
+
+              ))}
+              
+
+
+            </TreeItem>
             
 
 
 
             
             ))}
-          </TreeItem>
+          
           
           </TreeView>
 
@@ -168,4 +252,8 @@ class Sidebar extends Component {
   }
 }
 
-export default Sidebar;
+Sidebar.propTypes = {
+  classes: PropTypes.object.isRequired,
+};
+
+export default withStyles(styles)(Sidebar);
