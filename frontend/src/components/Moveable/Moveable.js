@@ -9,9 +9,8 @@ import floorplan from "../../assets/img/BB.jpg"
 
 class App extends React.Component {
   frame = new Frame({
-    width: "250px",
-    height: "auto",
-    left: "0px",
+    
+    left: "px",
     top: "0px",
     transform: {
       rotate: "0deg",
@@ -52,9 +51,11 @@ class App extends React.Component {
           
           <div className="moveable">
           
-          <img class="card-img-top" src={floorplan} alt="Card image" style={{width:250}}></img>
+          <img class="card-img-top" src={floorplan} alt="Card image" style={{width:'100%'}}></img>
         
           </div>
+
+          
         
         
       </div>
