@@ -19,6 +19,7 @@ import React, { Component } from "react";
 import { Route, Switch } from "react-router-dom";
 import NotificationSystem from "react-notification-system";
 
+import App from "components/Moveable/Moveable";
 import AdminNavbar from "components/Navbars/AdminNavbar";
 import Footer from "components/Footer/Footer";
 import Sidebar from "components/Sidebar/Sidebar";
@@ -177,9 +178,11 @@ class Admin extends Component {
             brandText={this.getBrandText(this.props.location.pathname)}
           />
 
+          <App/>
+          
           
           {/* <Switch>{this.getRoutes(routes)}</Switch> */}
-          {/* <Footer /> */}
+          <Footer />
           
         </div>
       </div>
