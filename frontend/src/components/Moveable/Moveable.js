@@ -8,6 +8,19 @@ import { Card } from "../Card/Card";
 import floorplan from "../../assets/img/BB.jpg"
 
 class App extends React.Component {
+
+    constructor(props){
+        super(props);
+        console.log("search box imported");
+        this.state = {
+            target: null,
+            container: null,
+            scalable: true
+        };
+        this.setFocus = this.setFocus.bind(this);
+    }
+    
+    
   frame = new Frame({
     
     left: "px",
@@ -20,20 +33,20 @@ class App extends React.Component {
     }
   });
 
-  state = {
-    target: null,
-    container: null,
-    scalable: true
-  };
+//   state = {
+//     target: null,
+//     container: null,
+//     scalable: true
+//   };
   render() {
       var self=this;
     const { scalable, target } = this.state;
     return (
       <div className="page main" ref={function(el){self._div=el}}>
         <Moveable
-         ref={ref(this, "moveable")}
+         ref={ref(this, "moveable2")}
           target={target}
-          
+          id="movref"
           container={this._div}
           draggable={true}
           scalable={scalable}
@@ -49,30 +62,55 @@ class App extends React.Component {
         
         
           
-          <div className="moveable">
+          <div ref={function(el){self._test2=el}} className="moveable">
           
-          <img class="card-img-top" src={floorplan} alt="Card image" style={{width:'100%'}}></img>
+          <img  onclick={()=>{console.log("helloooo")}} class="card-img-top" src={floorplan} alt="Card image" style={{width:'100%'}}></img>
         
           </div>
 
           
+        
+          <div  ref={function(el){self._test=el}} className="moveable" >
+          
+          <img  class="card-img-top" src={floorplan} alt="Card image" style={{width:'100%'}}></img>
+        
+          </div>
+
+          <div  ref={function(el){self._test3=el}} className="moveable" >
+          
+          <img  class="card-img-top" src={floorplan} alt="Card image" style={{width:'100%'}}></img>
+        
+          </div>
         
         
       </div>
     );
   }
   componentDidMount() {
+
     this.setState({
-      target: document.querySelector(".moveable")
+      target: document.querySelector('.moveable')
     });
     window.addEventListener("resize", this.onWindowReisze);
+    this._test.addEventListener("click", ()=> (this.setFocus(this._test)));
+    this._test3.addEventListener("click",()=> (this.setFocus(this._test3)));
+    this._test2.addEventListener("click",()=> (this.setFocus(this._test2)));
+    
+  }
+  setFocus(element){
+    this.setState({
+        target: element
+      });
+    console.log("cliquei")
   }
   componentWillUnmount() {
     window.removeEventListener("resize", this.onWindowReisze);
   }
   onWindowReisze = () => {
-    this.moveable.updateRect();
+    this.moveable2.updateRect();
+    console.log("resizeeee")
   };
+  
   clickScalable = () => {
     this.setState({
       scalable: true,
@@ -92,7 +130,11 @@ class App extends React.Component {
     this.frame.set("top", `${top}px`);
     this.setTransform(target);
     
+    
+    
   };
+
+ 
   onScale = ({ target, delta, clientX, clientY, isPinch }) => {
     const scaleX = this.frame.get("transform", "scaleX") * delta[0];
     const scaleY = this.frame.get("transform", "scaleY") * delta[1];

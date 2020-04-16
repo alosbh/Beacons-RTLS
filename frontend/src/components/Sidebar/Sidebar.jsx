@@ -20,8 +20,11 @@ import { NavLink } from "react-router-dom";
 
 import AdminNavbarLinks from "../Navbars/AdminNavbarLinks.jsx";
 import {FormInputs} from 'components/FormInputs/FormInputs.jsx'
+
+import { MDBCol, MDBIcon } from "mdbreact";
 import logo from "assets/img/logo.png";
 import './custom.css'
+
 
 
 
@@ -171,17 +174,15 @@ class Sidebar extends Component {
         </div>
         <div  className="sidebar-wrapper">
 
-          <div className='row-search'>
-
-            <form className='box-search'> 
-            <input className='form-search'
-              
-              placeholder="Search"/>
-            </form>
+        <MDBCol  style={{width:'100', margin:10}}>
+          <form className="form-inline mt-4 mb-4" style={{display:'flex', justifyContent:'space-evenly'}}>
+            
+            <input style={{height:35,width:'80%'}} className="form-control form-control-sm ml-3 w-75" type="text" placeholder="Search" aria-label="Search"/>
+            <MDBIcon icon="search" size='2x' style={{color:"#f1f1f1"}} />
             
 
-
-          </div>
+          </form>
+      </MDBCol>
 
             
           <TreeView
