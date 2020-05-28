@@ -15,7 +15,9 @@
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 */
+
 import Dashboard from "views/Dashboard.jsx";
+import App from "components/Moveable/Moveable";
 import UserProfile from "views/UserProfile.jsx";
 import TableList from "views/TableList.jsx";
 import Typography from "views/Typography.jsx";
@@ -29,7 +31,7 @@ const dashboardRoutes = [
     path: "/dashboard",
     name: "Dashboard",
     icon: "pe-7s-graph",
-    component: Dashboard,
+    component: App,
     layout: "/admin"
   },
   {

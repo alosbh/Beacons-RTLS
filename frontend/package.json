@@ -9,6 +9,8 @@
     "bootstrap": "3.3.7",
     "chartist": "0.10.1",
     "framework-utils": "^0.3.4",
+    "fs": "0.0.1-security",
+    "inspector": "^0.5.0",
     "mdbreact": "^4.25.6",
     "node-sass": "4.12.0",
     "react": "16.8.6",
